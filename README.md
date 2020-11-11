@@ -1,6 +1,6 @@
 # webauthn-secret
 
-_repurposing webauthn for end-to-end-encryption and peer-to-peer digital signature systems!_
+_repurposing webauthn for end-to-end-encryption and peer-to-peer digital signatures!_
 
 an in-browser, webauthn version of https://jbp.io/2015/11/23/abusing-u2f-to-store-keys.html
 
