@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "denopack": "deno run --unstable -A https://deno.land/x/denopack/cli.ts"
+  }
+}

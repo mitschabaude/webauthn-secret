@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>webauthn-secret</title>
+  </head>
+  <body>
+    <button onclick="webauthnCreate()">create</button>
+    <button onclick="webauthnGet()">get</button>
+    <button onclick="webauthnVerify()">verify</button>
+    <script type="module">
+      import {
+        createSecret,
+        getSecret,
+        verifySecret,
+      } from './dist/webauthn-secret.min.js';
+
+      // create secret for the first time => obtain secret + handle
+      window.webauthnCreate = async () => {
+        let result = await createSecret({password: 'whatever'});
+        if (!result) return;
+        let {handle, secret} = result;
+        localStorage.lastHandle = handle;
+        console.log('obtained secret', secret);
+      };
+
+      // retrieve the same secret by passing the handle
+      window.webauthnGet = async () => {
+        let handle = localStorage.lastHandle;
+        let secret = await getSecret(handle, {password: 'whatever'});
+        console.log('obtained secret', secret);
+      };
+
+      // this checks if the recovered public key can validate the signature
+      window.webauthnVerify = async () => {
+        let handle = localStorage.lastHandle;
+        let valid = await verifySecret(handle);
+        console.log(valid ? 'secret valid!' : 'secret NOT valid!');
+      };
+    </script>
+  </body>
+</html>
