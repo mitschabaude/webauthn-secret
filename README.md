@@ -28,7 +28,16 @@ but note that a fully attacker-controlled user device offers another attack duri
 
 ## usage
 
-see `demo.html`
+see `demo.html` for the API
+
+_TODO:_ i haven't made this an npm module yet. you can, however, use it in deno or a browser `<script type="module">` by importing it directly from github through [jsdelivr](https://www.jsdelivr.com/)
+
+```js
+import {
+  createSecret,
+  getSecret,
+} from "https://cdn.jsdelivr.net/gh/mitschabaude/webauthn-secret/dist/webauthn-secret.min.js";
+```
 
 ## try it out
 
